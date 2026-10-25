@@ -47,6 +47,10 @@ Hay otros cinco códigos en el panel administrativo. Son solo datos ficticios. L
 - Módulos y materiales se reordenan con flechas. Los archivos pueden seleccionarse o arrastrarse al formulario.
 - Este prototipo no incluye backend, APK, videollamadas, chat, IA ni exportaciones académicas.
 
+## Despliegue en Vercel
+
+El archivo `vercel.json` reescribe las rutas de React Router a `index.html`. Así `/login`, `/alumno/cursos` y las demás rutas también abren desde una pestaña nueva o incógnito. Vercel debe compilar con `pnpm build` y servir el directorio `dist`.
+
 ## Verificar
 
 ```bash
