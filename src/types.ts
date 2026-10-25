@@ -1,0 +1,13 @@
+export type Role = 'admin' | 'teacher' | 'student'
+export type User = { id: string; name: string; email?: string; role: Role; active: boolean; code?: string; grade?: string; section?: string }
+export type Course = { id: string; title: string; description: string; teacherId: string; published: boolean; accent: string }
+export type CourseModule = { id: string; courseId: string; title: string; position: number }
+export type Enrollment = { id: string; courseId: string; studentId: string; date: string }
+export type ContentItem = { id: string; moduleId: string; title: string; type: 'pdf' | 'image' | 'youtube'; ref: string; position: number }
+export type Question = { id: string; type: 'mcq' | 'tf' | 'short'; prompt: string; points: number; position: number; options?: string[]; correct?: string }
+export type Exam = { id: string; courseId: string; title: string; minutes: number; openAt: string; closeAt: string; published: boolean; version: number; questions: Question[] }
+export type Answer = { questionId: string; value: string; updatedAt: string; points?: number }
+export type Attempt = { id: string; examId: string; studentId: string; startedAt: string; submittedAt?: string; status: 'in_progress' | 'submitted' | 'graded'; sync: 'pending' | 'done' | 'error'; answers: Answer[] }
+export type ProgressEvent = { id: string; studentId: string; contentId: string; event: 'viewed' | 'completed'; at: string }
+export type AuditLog = { id: string; actorId: string; action: string; entity: string; entityId: string; at: string }
+export type Db = { users: User[]; courses: Course[]; modules: CourseModule[]; enrollments: Enrollment[]; contents: ContentItem[]; exams: Exam[]; attempts: Attempt[]; progress: ProgressEvent[]; audit: AuditLog[] }
